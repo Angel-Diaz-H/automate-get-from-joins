@@ -49,19 +49,19 @@ def main():
     # Genera el SQL de salida
     salida = []
     if tablas_fuente:
-        salida.append('-- Tablas encontradas en FROM/JOIN')
+        #salida.append('-- Tablas encontradas en FROM/JOIN')
         for t in tablas_fuente:
             salida.append(t)
         salida.append('')
 
     if tablas_select:
-        salida.append('-- Tablas encontradas en SELECT (subconsultas)')
+        #salida.append('-- Tablas encontradas en SELECT (subconsultas)')
         for t in tablas_select:
             salida.append(t)
         salida.append('')
 
     if tablas_where:
-        salida.append('-- Tablas encontradas en WHERE')
+        #salida.append('-- Tablas encontradas en WHERE')
         for t in tablas_where:
             salida.append(t)
         salida.append('')
@@ -69,6 +69,7 @@ def main():
     # Escribe el resultado en tablas.sql
     with open('tablas.sql', 'w', encoding='utf-8') as f:
         f.write('\n'.join(salida))
+    print('🟢 Tablas extraídas y guardadas en tablas.sql')
 
 if __name__ == '__main__':
     main()
